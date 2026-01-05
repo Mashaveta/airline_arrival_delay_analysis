@@ -20,7 +20,7 @@ Only airlines with at least 50 recorded flights are included to ensure reliable 
 - GitHub
 
 ## Visualization
-![Dashboard](dashboard.png)
+![Dashboard](Dashboard.png)
 
 ## Tableau Public Link
 https://public.tableau.com/app/profile/eliza.wanye/viz/airlines_delay_17675874272350/Dashboard1
