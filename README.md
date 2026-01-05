@@ -26,15 +26,10 @@ Only airlines with at least 50 recorded flights are included to ensure reliable 
 https://public.tableau.com/app/profile/eliza.wanye/viz/airlines_delay_17675874272350/Dashboard1
 
 ## SQL Query
-```sql
-SELECT 
-    "OP_UNIQUE_CARRIER",
-    ROUND(AVG("ARR_DELAY")) AS avg_delay_minutes,
-    ROUND(STDDEV("ARR_DELAY")) AS delay_variability,
-    COUNT(*) AS number_of_flights
+'''sql
+SELECT "OP_UNIQUE_CARRIER", "DEST", ROUND(AVG("ARR_DELAY")) AS avg_delay_minutes, ROUND(STDDEV("ARR_DELAY")) AS delay_variability, COUNT(*) AS number_of_flights
 FROM flight_data_with_weather_final
-WHERE "CANCELLED" = 0
-  AND "ARR_DELAY" IS NOT NULL
-GROUP BY "OP_UNIQUE_CARRIER"
+WHERE "CANCELLED" = 0 AND "ARR_DELAY" IS NOT NULL 
+GROUP BY "OP_UNIQUE_CARRIER", "DEST"
 HAVING COUNT(*) >= 50
 ORDER BY delay_variability DESC;
